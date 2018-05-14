@@ -1,0 +1,25 @@
+{
+  "name": "angular_library",
+  "version": "1.0.0",
+  "description": "TODO",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "install:projecta": "cd ProjectA && npm install",
+    "install:projectb": "cd ProjectB && npm install",
+    "install:library": "cd Library && npm install",
+    "install:all": "npm install && npm run install:projecta && npm run install:projectb && npm run install:library",
+    "build:lib": "cd Library && ng build",
+    "serve:projecta": "cd ProjectA && npm start",
+    "serve:projectb": "cd ProjectB && npm start",
+    "serve:all": "npm run build:lib && concurrently --kill-others \"npm run serve:projecta\" \"npm run serve:projectb\"",
+    "release:projecta": "cd ProjectA && npm run release",
+    "release:projectb": "cd ProjectB && npm run release",
+    "release": "npm run build:lib && npm run release:projecta && npm run release:projectb"
+  },
+  "devDependencies": {
+    "concurrently": "^3.5.1"
+  },
+  "author": "",
+  "license": "ISC"
+}
